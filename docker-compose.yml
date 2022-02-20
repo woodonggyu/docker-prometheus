@@ -18,7 +18,7 @@ services:
     ports:
       - "9090:9090"
     depends_on:
-      - advisor
+      - cadvisor
     restart: always
     deploy:
       placement:
