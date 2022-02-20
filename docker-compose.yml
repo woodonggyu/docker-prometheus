@@ -56,7 +56,7 @@ services:
         constraints: [ node.role == manager ]
 
   cadvisor:
-    image: grc.io/cadvisor/cadvisor
+    image: gcr.io/cadvisor/cadvisor:latest
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
