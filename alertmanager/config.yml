@@ -1,0 +1,25 @@
+global:
+#  resolve_timeout: 5m
+  slack_api_url: 'https://hooks.slack.com/services/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'
+
+route:
+  receiver: 'slack-notifications'
+  repeat_interval: 1m
+
+# How long to initially wait to send a notification for a group
+# of alerts. Allows to wait for an inhibiting alert to arrive or collect
+# more initial alerts for the same group. (Usually ~0s to few minutes.)
+#  group_wait: 30s
+
+# How long to wait before sending a notification about new alerts that
+# are added to a group of alerts for which an initial notification has
+# already been sent. (Usually ~5m or more.)
+#  group_interval: 5s
+
+receivers:
+  - name: 'slack-notifications'
+    slack_configs:
+      - channel: 'alert-grafana'
+        send_resolved: true
+        title: 'alert'
+        text: 'summary: {{ .CommonAnnotations.summary }}'
