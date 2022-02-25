@@ -10,7 +10,6 @@ networks:
 services:
   prometheus:
     image: prom/prometheus:latest
-    container_name: prometheus
     volumes:
       - ./prometheus/:/etc/prometheus/
       - prometheus_data:/prometheus
@@ -35,7 +34,6 @@ services:
 
   node-exporter:
     image: prom/node-exporter:latest
-    container_name: node-exporter
     volumes:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
@@ -57,7 +55,6 @@ services:
 
   alertmanager:
     image: prom/alertmanager:latest
-    container_name: alertmanager
     volumes:
       - ./alertmanager/:/etc/alertmanager/
     command:
@@ -75,7 +72,6 @@ services:
 
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
-    container_name: cadvisor
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
@@ -92,7 +88,6 @@ services:
 
   grafana:
     image: grafana/grafana:latest
-    container_name: grafana
     volumes:
       - grafana_data:/var/lib/grafana
       - ./grafana/provisioning/:/etc/grafana/provisioning/
