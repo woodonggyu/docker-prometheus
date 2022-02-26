@@ -47,7 +47,6 @@ services:
       - "9100:9100"
     networks:
       - monitor-net
-    restart: always
     deploy:
       mode: global
       restart_policy:
