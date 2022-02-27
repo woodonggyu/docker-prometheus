@@ -6,7 +6,7 @@ groups:
       # alert name
       - alert: InstanceDown
         # alert condition
-        expr: up{job="node-exporter"} == 0
+        expr: up == 0
         # waiting time for alert
         for: 0m
         labels:
