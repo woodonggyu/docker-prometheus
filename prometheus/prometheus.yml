@@ -36,7 +36,7 @@ scrape_configs:
       - names:
           - 'tasks.node-exporter'
         type: 'A'
-        port: 9090
+        port: 9100
 
 
   #    ec2_sd_configs:
