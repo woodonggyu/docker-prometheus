@@ -32,17 +32,18 @@ scrape_configs:
 
   - job_name: 'node-exporter'
 
-    ec2_sd_configs:
-      - region: ap-northeast-2
-        access_key: <INPUT_ACCESS_KEY>
-        secret_key: <INPUT_SECRET_KEY>
-        port: 9100
+    dns_sd_configs:
+      - names:
+          - 'tasks.node-exporter'
+        type: 'A'
+        port: 9090
 
-  #    dns_sd_configs:
-#      - names:
-#          - 'tasks.node-exporter'
-#        type: 'A'
-#        port: 9090
+
+  #    ec2_sd_configs:
+#      - region: ap-northeast-2
+#        access_key: <INPUT_ACCESS_KEY>
+#        secret_key: <INPUT_SECRET_KEY>
+#        port: 9100
 
   #    static_configs:
 #      - targets: [ 'node-exporter_1:9100', 'node-exporter_2:9100' ]
