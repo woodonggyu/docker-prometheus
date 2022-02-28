@@ -61,7 +61,7 @@
       }
     ]
   },
-  "description": "【English version】Update 2020.10.10, add the overall resource overview! Support Grafana6&7,Support Node Exporter v0.16 and above.Optimize the main metrics display. Includes: CPU, memory, disk IO, network, temperature and other monitoring metrics。https://github.com/starsliao/Prometheus",
+  "description": "",
   "editable": true,
   "gnetId": 11074,
   "graphTooltip": 0,
@@ -3669,9 +3669,8 @@
   "schemaVersion": 26,
   "style": "dark",
   "tags": [
-    "Prometheus",
-    "node_exporter",
-    "StarsL.cn"
+    "prometheus",
+    "node-exporter"
   ],
   "templating": {
     "list": [
