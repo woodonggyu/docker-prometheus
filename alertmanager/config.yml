@@ -4,7 +4,6 @@ global:
 
 route:
   receiver: 'slack-notifications'
-  repeat_interval: 1m
 
 # How long to initially wait to send a notification for a group
 # of alerts. Allows to wait for an inhibiting alert to arrive or collect
@@ -19,7 +18,7 @@ route:
 receivers:
   - name: 'slack-notifications'
     slack_configs:
-      - channel: 'alert-grafana'
+      - channel: '#alert-grafana'
         send_resolved: true
         title: 'alert'
-        text: 'summary: {{ .CommonAnnotations.summary }}'
+        text: '{{ .CommonAnnotations.description }}'
