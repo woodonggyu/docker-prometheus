@@ -8,7 +8,7 @@ groups:
         # alert condition
         expr: up == 0
         # waiting time for alert
-        for: 0m
+        for: 30s
         labels:
           severity: critical
         annotations:
