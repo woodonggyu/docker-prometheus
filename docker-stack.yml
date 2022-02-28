@@ -93,8 +93,6 @@ services:
       - ./grafana/provisioning/:/etc/grafana/provisioning/
     ports:
       - "3000:3000"
-    environment:
-      - DS_PROMETHEUS=Prometheus
     depends_on:
       - prometheus
     networks:
