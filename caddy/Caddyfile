@@ -6,6 +6,10 @@
     reverse_proxy cadvisor:8080
 }
 
+:8081 {
+    reverse_proxy karma:8081
+}
+
 :9090 {
     reverse_proxy prometheus:9090
 }
