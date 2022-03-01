@@ -3,11 +3,7 @@
 }
 
 :8080 {
-    reverse_proxy cadvisor:8080
-}
-
-:8081 {
-    reverse_proxy karma:8081
+    reverse_proxy karma:8080
 }
 
 :9090 {
@@ -16,4 +12,8 @@
 
 :9093 {
     reverse_proxy alertmanager:9093
+}
+
+:9101 {
+    reverse_proxy cadvisor:9101
 }
