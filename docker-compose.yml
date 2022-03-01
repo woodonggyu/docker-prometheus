@@ -82,17 +82,31 @@ services:
   caddy:
     image: caddy:latest
     container_name: caddy
-    ports:
-      - "3000:3000"
-      - "8080:8080"
-      - "9090:9090"
-      - "9093:9093"
     volumes:
       - ./caddy:/etc/caddy
     environment:
       - ADMIN_USER=${ADMIN_USER:-admin}
       - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
       - ADMIN_PASSWORD_HASH=${ADMIN_PASSWORD_HASH:-JDJhJDE0JE91S1FrN0Z0VEsyWmhrQVpON1VzdHVLSDkyWHdsN0xNbEZYdnNIZm1pb2d1blg4Y09mL0ZP}
+    ports:
+      - "3000:3000"
+      - "8080:8080"
+      - "8081:8081"
+      - "9090:9090"
+      - "9093:9093"
+    restart: unless-stopped
+    networks:
+      - monitor-net
+    labels:
+      org.label-schema.group: "monitoring"
+
+  karma:
+    image: ghcr.io/prymitive/karma:v0.99
+    container_name: karma
+    command:
+      - '--alertmanager.uri=http://alertmanager:9093'
+    expose:
+      - "8081"
     restart: unless-stopped
     networks:
       - monitor-net
